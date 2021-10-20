@@ -5,6 +5,8 @@ __pycache__/
 
 test-bot.py
 venv/
+build_and_upload
+
 # C extensions
 *.so
 .vscode/
