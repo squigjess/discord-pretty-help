@@ -3,10 +3,10 @@ __all__ = ["PrettyHelp"]
 from random import randint
 from typing import List, Union
 
-import discord
-from discord.channel import _single_delete_strategy
-from discord.ext import commands
-from discord.ext.commands.help import HelpCommand
+import nextcord
+from nextcord.channel import _single_delete_strategy
+from nextcord.ext import commands
+from nextcord.ext.commands.help import HelpCommand
 
 from .menu import DefaultMenu
 
@@ -22,7 +22,7 @@ class Paginator:
         The suffix appended at the end of every page. e.g. three backticks.
     max_size: :class:`int`
         The maximum amount of codepoints allowed in a page.
-    color: Optional[:class:`discord.Color`, :class: `int`]
+    color: Optional[:class:`nextcord.Color`, :class: `int`]
         The color of the disord embed. Default is a random color for every invoke
     ending_note: Optional[:class:`str`]
         The footer in of the help embed
@@ -46,12 +46,12 @@ class Paginator:
         """Clears the paginator to have no pages."""
         self._pages = []
 
-    def _check_embed(self, embed: discord.Embed, *chars: str):
+    def _check_embed(self, embed: nextcord.Embed, *chars: str):
         """
         Check if the emebed is too big to be sent on discord
 
         Args:
-            embed (discord.Embed): The embed to check
+            embed (nextcord.Embed): The embed to check
 
         Returns:
             bool: Will return True if the emebed isn't too large
@@ -69,16 +69,16 @@ class Paginator:
             title (str): The title of the new page
 
         Returns:
-            discord.Emebed: Returns an embed with the title and color set
+            nextcord.Embed: Returns an embed with the title and color set
         """
-        return discord.Embed(title=title, description=description, color=self.color)
+        return nextcord.Embed(title=title, description=description, color=self.color)
 
-    def _add_page(self, page: discord.Embed):
+    def _add_page(self, page: nextcord.Embed):
         """
         Add a page to the paginator
 
         Args:
-            page (discord.Embed): The page to add
+            page (nextcord.Embed): The page to add
         """
         page.set_footer(text=self.ending_note)
         self._pages.append(page)
@@ -103,7 +103,7 @@ class Paginator:
         self._add_command_fields(embed, page_title, commands_list)
 
     def _add_command_fields(
-        self, embed: discord.Embed, page_title: str, commands: List[commands.Command]
+        self, embed: nextcord.Embed, page_title: str, commands: List[commands.Command]
     ):
         """
         Adds command fields to Category/Cog and Command Group pages
@@ -221,7 +221,7 @@ class Paginator:
         start = 1 if not self.show_index else 0
         pages = len(self._pages) if not self.show_index else len(self._pages) - 1
         for page_no, page in enumerate(self._pages, start):
-            page: discord.Embed
+            page: nextcord.Embed
             if not self.show_index or page_no != 0:
                 page.description = f"`Page: {page_no}/{pages}`\n{page.description}"
             lst.append(page)
@@ -237,7 +237,7 @@ class PrettyHelp(HelpCommand):
     Attributes
     ------------
 
-    color: :class: `discord.Color`
+    color: :class: `nextcord.Color`
         The color to use for the help embeds. Default is a random color.
     dm_help: Optional[:class:`bool`]
         A tribool that indicates if the help command should DM the user instead of
@@ -267,7 +267,7 @@ class PrettyHelp(HelpCommand):
 
         self.color = options.pop(
             "color",
-            discord.Color.from_rgb(randint(0, 255), randint(0, 255), randint(0, 255)),
+            nextcord.Color.from_rgb(randint(0, 255), randint(0, 255), randint(0, 255)),
         )
         self.dm_help = options.pop("dm_help", False)
         self.index_title = options.pop("index_title", "Categories")

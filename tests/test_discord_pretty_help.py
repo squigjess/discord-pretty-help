@@ -3,7 +3,7 @@ Note: Rename `env.example` to `.env` and enter your token then run `poetry run t
 """
 import os
 
-from discord.ext import commands
+from nextcord.ext import commands
 from pretty_help import DefaultMenu, PrettyHelp
 import dotenv
 
