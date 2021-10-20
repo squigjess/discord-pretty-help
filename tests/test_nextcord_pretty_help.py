@@ -1,5 +1,7 @@
 """
-Note: Rename `env.example` to `.env` and enter your token then run `poetry run test` in your terminal
+Note: Rename `env.example` to `.env` and enter your token then run
+`poetry run test` in your terminal from the package's root dir.
+Ensure you change the custom emoji ID on line 17 before running the tests.
 """
 import os
 
@@ -9,22 +11,20 @@ import dotenv
 
 dotenv.load_dotenv("./tests/.env")
 
-# ":discord:743511195197374563" is a custom discord emoji format. Adjust to match your own custom emoji.
-menu = DefaultMenu(
-    "\U0001F44D",
-    "👎",
-    ":discord:743511195197374563",
-    active_time=5,
-    delete_after_timeout=True,
-)
+# ":discord:890113860642672691" is a custom discord emoji format. Adjust to match your own custom emoji.
+# You can find the emoji's ID by typing \:emojiname: in the server with said emoji.
+menu = DefaultMenu("\U0001F44D",
+                   "👎",
+                   ":discord:890113860642672691",
+                   active_time=5,
+                   delete_after_timeout=True)
 
 # Custom ending note
-ending_note = "The ending note from {ctx.bot.user.name}\nFor command {help.clean_prefix}{help.invoked_with}"
+ending_note = "The ending note from {ctx.bot.user.name}\nFor command {ctx.clean_prefix}{ctx.invoked_with}"
 
-bot = commands.Bot(
-    command_prefix="!",
-    description="this is the bots descripton",
-)
+bot = commands.Bot(command_prefix="!",
+                   description="this is the bots descripton")
+                   
 bot.help_command = PrettyHelp(menu=menu, ending_note=ending_note)
 # bot.help_command = PrettyHelp(menu=menu, ending_note=ending_note, show_index=False)
 

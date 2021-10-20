@@ -1,28 +1,28 @@
 [tool.poetry]
-name = "discord-pretty-help"
+name = "nextcord-pretty-help"
 version = "1.3.3"
-description = "And nicer looking interactive help menu for discord.py"
-authors = ["StroupBSlayen <29642143+stroupbslayen@users.noreply.github.com>"]
+description = "An embed-based version of the built in help command for Nextcord"
+authors = ["squigjess <701075+squigjess@users.noreply.github.com>", "StroupBSlayen <29642143+stroupbslayen@users.noreply.github.com>"]
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/stroupbslayen/discord-pretty-help"
-keywords=["discord", "discord.py", "discord bot"]
+repository = "https://github.com/squigjess/nextcord-pretty-help"
+keywords=["discord", "nextcord", "discord bot"]
 packages = [
     {include = "pretty_help"}
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-"discord.py" = "^1.5.1"
-black = {version = "^20.8b1", allow-prereleases = true}
-python-dotenv = "^0.15.0"
+pytest = "^6.2.5"
+nextcord = "^2.0.0-alpha.3"
+python-dotenv = "^0.19.1"
+black = {version = "^21.9b0", allow-prereleases = true}
 
 [tool.poetry.scripts]
-test = "tests.test_discord_pretty_help:run"
+test = "tests.test_nextcord_pretty_help:run"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
