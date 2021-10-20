@@ -238,7 +238,7 @@ class PrettyHelp(HelpCommand):
     ------------
 
     color: :class: `nextcord.Color`
-        The color to use for the help embeds. Default is a random color.
+        The color to use for the help embeds. Defaults to Discord's trademark "blurple".
     dm_help: Optional[:class:`bool`]
         A tribool that indicates if the help command should DM the user instead of
         sending it to the channel it received it from. If the boolean is set to
@@ -267,7 +267,7 @@ class PrettyHelp(HelpCommand):
 
         self.color = options.pop(
             "color",
-            nextcord.Color.from_rgb(randint(0, 255), randint(0, 255), randint(0, 255)),
+            nextcord.Color.blurple()
         )
         self.dm_help = options.pop("dm_help", False)
         self.index_title = options.pop("index_title", "Categories")
@@ -300,8 +300,8 @@ class PrettyHelp(HelpCommand):
     def get_ending_note(self):
         """Returns help command's ending note. This is mainly useful to override for i18n purposes."""
         note = self.ending_note or (
-            "Type {help.clean_prefix}{help.invoked_with} command for more info on a command.\n"
-            "You can also type {help.clean_prefix}{help.invoked_with} category for more info on a category."
+            "Type {ctx.clean_prefix}{ctx.invoked_with} command for more info on a command.\n"
+            "You can also type {ctx.clean_prefix}{ctx.invoked_with} category for more info on a category."
         )
         return note.format(ctx=self.context, help=self)
 
