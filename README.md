@@ -1,8 +1,8 @@
-![version](https://img.shields.io/pypi/v/discord-pretty-help) ![python](https://img.shields.io/badge/python-3.6+-blue)
+![PyPI version](https://img.shields.io/pypi/v/nextcord-pretty-help) ![Python](https://img.shields.io/badge/python-3.9+-blue) ![License](https://img.shields.io/pypi/l/nextcord-pretty-help)
 
 # nextcord-pretty-help
 
-A Nextcord compatible form of [stroupbslayen's discord-pretty-help project](https://github.com/stroupbslayen/discord-pretty-help/), which is an embed-based version of the built in `help` command for projects using discord.py. 
+A Nextcord-compatible port of [stroupbslayen's discord-pretty-help project](https://github.com/stroupbslayen/discord-pretty-help/), which is an embed-based version of the built in `help` command for projects using discord.py. 
 
 The output is inspired by the `DefaultHelpCommand` that discord.py uses, but is revised to use Discord embeds instead of plain text, and additional sorting on paginated sections that can be "scrolled" through using reactions.
 
