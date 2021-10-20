@@ -1,4 +1,4 @@
-![version](https://img.shields.io/pypi/v/discord-pretty-help) ![python](https://img.shields.io/badge/python-3.6+-blue)
+![PyPI version](https://img.shields.io/pypi/v/nextcord-pretty-help) ![Python](https://img.shields.io/badge/python-3.9+-blue) ![License](https://img.shields.io/pypi/l/nextcord-pretty-help)
 
 # nextcord-pretty-help
 
